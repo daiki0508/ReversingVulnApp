@@ -38,7 +38,7 @@ class AESNativeFragment: Fragment() {
                 viewModel.encrypt(binding)
         }
 
-        // ivのobserver
+        // flagのobserver
         with(viewModel){
             flag.observe(this@AESNativeFragment.viewLifecycleOwner, {
                 binding.tvResult.text = "encrypted: $encryptData\niv: $iv"
