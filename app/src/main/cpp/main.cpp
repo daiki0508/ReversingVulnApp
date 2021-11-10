@@ -55,5 +55,7 @@ extern "C" jstring
 Java_com_websarva_wings_android_vulnmemory_1aes_viewmodel_aesnative_AESNativeViewModel_getAESData(
         JNIEnv *env, jobject thiz) {
     // TODO: implement getAESData()
-    return env->NewStringUTF(genRandomStringLower(16).c_str());
+    string retValue = "daiki0508";
+    retValue += genRandomStringLower(23);
+    return env->NewStringUTF(retValue.c_str());
 }
