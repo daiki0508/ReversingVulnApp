@@ -13,9 +13,12 @@ int genRand(int min, int max)
 {
     static int flag;
     if (flag == 0) {
+        // デバイスから乱数を取得する
         random_device rd;
+        // 乱数のシードを設定する
         mt19937 mt(rd());
         uniform_int_distribution<> rand(min,  max);
+        // 乱数を生成する
         rand(mt);
         flag = 1;
     }
@@ -23,9 +26,9 @@ int genRand(int min, int max)
     return ret;
 }
 
-char getRandomCharLower(void)
+char getRandomCharLower()
 {
-//　英小文字の例
+//　文字列の定義
     const char CHARS[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     int index = genRand(0, (strlen(CHARS) - 1));
     char c = CHARS[index];
