@@ -22,6 +22,7 @@ import javax.security.auth.Destroyable
 class AESNativeViewModel @Inject constructor(application: Application) : AndroidViewModel(application) {
     companion object{
         init {
+            // ネイティブライブラリをロード
             System.loadLibrary("main")
         }
     }
@@ -55,5 +56,6 @@ class AESNativeViewModel @Inject constructor(application: Application) : Android
         }
     }
 
+    // getAESDataの定義
     private external fun getAESData(): String
 }
