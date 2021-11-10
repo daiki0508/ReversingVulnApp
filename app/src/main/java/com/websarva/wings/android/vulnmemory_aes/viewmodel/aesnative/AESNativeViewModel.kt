@@ -20,6 +20,12 @@ import javax.security.auth.Destroyable
 
 @HiltViewModel
 class AESNativeViewModel @Inject constructor(application: Application) : AndroidViewModel(application) {
+    companion object{
+        init {
+            System.loadLibrary("main")
+        }
+    }
+
     private var _encryptData: String? = null
     val encryptData
     get() = _encryptData!!
@@ -37,7 +43,7 @@ class AESNativeViewModel @Inject constructor(application: Application) : Android
         var secretKey: SecretKey? = null
         var editable: Editable? = null
         try {
-            secretKey = SecretKeySpec("1234567890123456".toByteArray(), "AES")
+            secretKey = SecretKeySpec(getAESData().toByteArray(), "AES")
             val cipher = Cipher.getInstance("AES/CBC/PKCS5Padding")
             cipher.init(Cipher.ENCRYPT_MODE, secretKey)
             editable = Editable.Factory.getInstance().newEditable(binding.edText.text)
@@ -48,4 +54,6 @@ class AESNativeViewModel @Inject constructor(application: Application) : Android
             _flag.value = true
         }
     }
+
+    private external fun getAESData(): String
 }
