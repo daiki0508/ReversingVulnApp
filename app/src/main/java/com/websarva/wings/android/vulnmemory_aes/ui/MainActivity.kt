@@ -5,7 +5,9 @@ import android.os.Bundle
 import com.websarva.wings.android.vulnmemory_aes.R
 import com.websarva.wings.android.vulnmemory_aes.databinding.ActivityMainBinding
 import com.websarva.wings.android.vulnmemory_aes.ui.fragment.AESNativeFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
