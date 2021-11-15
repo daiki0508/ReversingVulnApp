@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.websarva.wings.android.vulnmemory_aes.R
 import com.websarva.wings.android.vulnmemory_aes.databinding.ActivityMainBinding
-import com.websarva.wings.android.vulnmemory_aes.ui.fragment.AESNativeFragment
+import com.websarva.wings.android.vulnmemory_aes.ui.fragment.top.TopFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,6 +19,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         // fragmentの起動
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, AESNativeFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, TopFragment()).commit()
     }
 }
