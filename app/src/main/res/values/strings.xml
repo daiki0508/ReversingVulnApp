@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VulnMemory_AES</string>
+    <string name="app_name">ReversingVulnApp</string>
     <string name="rvTitle1">Key outflow to memory</string>
     <string name="rvTitle2">Vuln cryptographic algorithm</string>
 </resources>

@@ -9,7 +9,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.websarva.wings.android.vulnmemory_aes"
+        applicationId "com.websarva.wings.android.reversingvulnapp"
         minSdk 23
         targetSdk 31
         versionCode 3
