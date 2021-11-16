@@ -1,11 +1,11 @@
-package com.websarva.wings.android.vulnmemory_aes.ui.fragment.top
+package com.websarva.wings.android.reversingvulnapp.ui.fragment.top
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.websarva.wings.android.vulnmemory_aes.R
-import com.websarva.wings.android.vulnmemory_aes.ui.fragment.aesnative.AESNativeFragment
-import com.websarva.wings.android.vulnmemory_aes.ui.fragment.vulnalg.AESAlgFragment
+import com.websarva.wings.android.reversingvulnapp.R
+import com.websarva.wings.android.reversingvulnapp.ui.fragment.aesnative.AESNativeFragment
+import com.websarva.wings.android.reversingvulnapp.ui.fragment.vulnalg.AESAlgFragment
 
 class RecyclerViewAdapter(
     private val items: List<String>,

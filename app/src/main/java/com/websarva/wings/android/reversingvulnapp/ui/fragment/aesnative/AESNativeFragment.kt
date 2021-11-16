@@ -1,35 +1,33 @@
-package com.websarva.wings.android.vulnmemory_aes.ui.fragment.vulnalg
+package com.websarva.wings.android.reversingvulnapp.ui.fragment.aesnative
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.websarva.wings.android.vulnmemory_aes.R
-import com.websarva.wings.android.vulnmemory_aes.databinding.FragmentAesalgBinding
-import com.websarva.wings.android.vulnmemory_aes.ui.MainActivity
-import com.websarva.wings.android.vulnmemory_aes.viewmodel.vulnalg.VulnAlgViewModel
+import com.websarva.wings.android.reversingvulnapp.R
+import com.websarva.wings.android.reversingvulnapp.databinding.FragmentAesnativeBinding
+import com.websarva.wings.android.reversingvulnapp.ui.MainActivity
+import com.websarva.wings.android.reversingvulnapp.viewmodel.aesnative.AESNativeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AESAlgFragment: Fragment() {
-    private var _binding: FragmentAesalgBinding? = null
+class AESNativeFragment: Fragment() {
+    private var _binding: FragmentAesnativeBinding? = null
     private val binding
     get() = _binding!!
 
-    private val viewModel: VulnAlgViewModel by viewModels()
+    private val viewModel: AESNativeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAesalgBinding.inflate(inflater, container, false)
+        _binding = FragmentAesnativeBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -46,17 +44,18 @@ class AESAlgFragment: Fragment() {
             }
         }
 
-        // buttonタップ時の処理
+        // ボタンタップ時の処理
         binding.button.setOnClickListener {
-            viewModel.decrypt()
+            if (!binding.edText.text.isNullOrBlank())
+                viewModel.encrypt(binding)
         }
 
-        // decryptBytesのobserver
-        viewModel.decryptBytes.observe(this.viewLifecycleOwner, { decryptSrc ->
-            activity?.let {
-                AlertDialogFragment(binding.edText.text.toString() == String(decryptSrc)).show(it.supportFragmentManager, "AlertDialogFragment")
-            }
-        })
+        // flagのobserver
+        with(viewModel){
+            flag.observe(this@AESNativeFragment.viewLifecycleOwner, {
+                binding.tvResult.text = "encrypted: $encryptData\niv: $iv"
+            })
+        }
     }
 
     override fun onDestroyView() {

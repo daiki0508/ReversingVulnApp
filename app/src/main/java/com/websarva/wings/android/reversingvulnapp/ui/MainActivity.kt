@@ -1,10 +1,10 @@
-package com.websarva.wings.android.vulnmemory_aes.ui
+package com.websarva.wings.android.reversingvulnapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.websarva.wings.android.vulnmemory_aes.R
-import com.websarva.wings.android.vulnmemory_aes.databinding.ActivityMainBinding
-import com.websarva.wings.android.vulnmemory_aes.ui.fragment.top.TopFragment
+import com.websarva.wings.android.reversingvulnapp.R
+import com.websarva.wings.android.reversingvulnapp.databinding.ActivityMainBinding
+import com.websarva.wings.android.reversingvulnapp.ui.fragment.top.TopFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
