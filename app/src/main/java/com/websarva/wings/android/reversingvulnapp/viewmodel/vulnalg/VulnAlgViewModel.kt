@@ -1,4 +1,4 @@
-package com.websarva.wings.android.vulnmemory_aes.viewmodel.vulnalg
+package com.websarva.wings.android.reversingvulnapp.viewmodel.vulnalg
 
 import android.app.Application
 import android.os.Build

@@ -51,8 +51,9 @@ string genRandomStringLower(int length)
     return text;
 }
 
-extern "C" jstring
-Java_com_websarva_wings_android_vulnmemory_1aes_viewmodel_aesnative_AESNativeViewModel_getAESData(
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_websarva_wings_android_reversingvulnapp_viewmodel_aesnative_AESNativeViewModel_getAESData(
         JNIEnv *env, jobject thiz) {
     // TODO: implement getAESData()
     string retValue = "daiki0508";
@@ -62,7 +63,7 @@ Java_com_websarva_wings_android_vulnmemory_1aes_viewmodel_aesnative_AESNativeVie
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_websarva_wings_android_vulnmemory_1aes_viewmodel_vulnalg_VulnAlgViewModel_getAESData(
+Java_com_websarva_wings_android_reversingvulnapp_viewmodel_vulnalg_VulnAlgViewModel_getAESData(
         JNIEnv *env, jobject thiz, jint flag) {
     // TODO: implement getAESData()
     string retValue;
@@ -82,7 +83,7 @@ Java_com_websarva_wings_android_vulnmemory_1aes_viewmodel_vulnalg_VulnAlgViewMod
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_websarva_wings_android_vulnmemory_1aes_viewmodel_vulnalg_VulnAlgViewModelKt_getXorData(
+Java_com_websarva_wings_android_reversingvulnapp_viewmodel_vulnalg_VulnAlgViewModelKt_getXorData(
         JNIEnv *env, jclass clazz) {
     // TODO: implement getXorData()
     string retValue = "NjI5ODQ3Nzc3NTM5MjM0NzIzNjQ3NDg1NDIyNDkzODM=";

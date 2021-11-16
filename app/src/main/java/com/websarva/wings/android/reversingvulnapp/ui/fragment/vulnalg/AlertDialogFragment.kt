@@ -1,4 +1,4 @@
-package com.websarva.wings.android.vulnmemory_aes.ui.fragment.vulnalg
+package com.websarva.wings.android.reversingvulnapp.ui.fragment.vulnalg
 
 import android.app.Dialog
 import android.os.Bundle
