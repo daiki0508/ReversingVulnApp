@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.websarva.wings.android.vulnmemory_aes.R
 import com.websarva.wings.android.vulnmemory_aes.ui.fragment.aesnative.AESNativeFragment
+import com.websarva.wings.android.vulnmemory_aes.ui.fragment.vulnalg.AESAlgFragment
 
 class RecyclerViewAdapter(
     private val items: List<String>,
@@ -32,7 +33,9 @@ class RecyclerViewAdapter(
                 }
                 1 -> {
                     fragment.activity?.let {
-                        TODO("未実装")
+                        val transaction = it.supportFragmentManager.beginTransaction()
+                        transaction.setCustomAnimations(R.anim.fragment_up_enter_anim, R.anim.fragment_up_exit_anim)
+                        transaction.replace(R.id.fragment_container, AESAlgFragment()).commit()
                     }
                 }
             }
