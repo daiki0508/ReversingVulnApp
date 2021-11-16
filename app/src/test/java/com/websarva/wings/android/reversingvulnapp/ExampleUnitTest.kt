@@ -1,4 +1,4 @@
-package com.websarva.wings.android.vulnmemory_aes
+package com.websarva.wings.android.reversingvulnapp
 
 import org.junit.Test
 

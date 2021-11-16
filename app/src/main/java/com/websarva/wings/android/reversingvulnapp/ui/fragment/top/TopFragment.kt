@@ -1,4 +1,4 @@
-package com.websarva.wings.android.vulnmemory_aes.ui.fragment.top
+package com.websarva.wings.android.reversingvulnapp.ui.fragment.top
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.websarva.wings.android.vulnmemory_aes.R
-import com.websarva.wings.android.vulnmemory_aes.databinding.FragmentTopBinding
+import com.websarva.wings.android.reversingvulnapp.R
+import com.websarva.wings.android.reversingvulnapp.databinding.FragmentTopBinding
 
 class TopFragment: Fragment() {
     private var _binding: FragmentTopBinding? = null

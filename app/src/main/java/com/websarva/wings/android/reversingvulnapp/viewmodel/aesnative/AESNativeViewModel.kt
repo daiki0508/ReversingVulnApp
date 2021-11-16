@@ -1,4 +1,4 @@
-package com.websarva.wings.android.vulnmemory_aes.viewmodel.aesnative
+package com.websarva.wings.android.reversingvulnapp.viewmodel.aesnative
 
 import android.app.Application
 import android.text.Editable
@@ -8,15 +8,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.websarva.wings.android.vulnmemory_aes.databinding.FragmentAesnativeBinding
+import com.websarva.wings.android.reversingvulnapp.databinding.FragmentAesnativeBinding
 import dagger.hilt.android.lifecycle.HiltViewModel
-import java.io.FileOutputStream
 import java.util.*
 import javax.crypto.Cipher
 import javax.crypto.SecretKey
 import javax.crypto.spec.SecretKeySpec
 import javax.inject.Inject
-import javax.security.auth.Destroyable
 
 @HiltViewModel
 class AESNativeViewModel @Inject constructor(application: Application) : AndroidViewModel(application) {

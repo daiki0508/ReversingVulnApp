@@ -1,4 +1,4 @@
-package com.websarva.wings.android.vulnmemory_aes.di
+package com.websarva.wings.android.reversingvulnapp.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
