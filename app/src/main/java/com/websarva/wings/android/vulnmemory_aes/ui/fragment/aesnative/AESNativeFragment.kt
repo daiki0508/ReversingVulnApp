@@ -1,13 +1,16 @@
-package com.websarva.wings.android.vulnmemory_aes.ui.fragment
+package com.websarva.wings.android.vulnmemory_aes.ui.fragment.aesnative
 
+import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.websarva.wings.android.vulnmemory_aes.R
 import com.websarva.wings.android.vulnmemory_aes.databinding.FragmentAesnativeBinding
+import com.websarva.wings.android.vulnmemory_aes.ui.MainActivity
 import com.websarva.wings.android.vulnmemory_aes.viewmodel.aesnative.AESNativeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,6 +35,15 @@ class AESNativeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // backButtonタップ時の処理
+        requireActivity().onBackPressedDispatcher.addCallback(this){
+            with(Intent(activity, MainActivity::class.java)){
+                activity?.finish()
+                startActivity(this)
+                activity?.overridePendingTransition(R.anim.fragment_pop_enter_anim, R.anim.fragment_pop_exit_anim)
+            }
+        }
+
         // ボタンタップ時の処理
         binding.button.setOnClickListener {
             if (!binding.edText.text.isNullOrBlank())
@@ -44,5 +56,11 @@ class AESNativeFragment: Fragment() {
                 binding.tvResult.text = "encrypted: $encryptData\niv: $iv"
             })
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        _binding = null
     }
 }
