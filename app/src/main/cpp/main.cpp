@@ -59,3 +59,32 @@ Java_com_websarva_wings_android_vulnmemory_1aes_viewmodel_aesnative_AESNativeVie
     retValue += genRandomStringLower(23);
     return env->NewStringUTF(retValue.c_str());
 }
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_websarva_wings_android_vulnmemory_1aes_viewmodel_vulnalg_VulnAlgViewModel_getAESData(
+        JNIEnv *env, jobject thiz, jint flag) {
+    // TODO: implement getAESData()
+    string retValue;
+    switch (flag) {
+        case 0:
+            retValue += "RFpJdGICZFR8VAdBdwdebkNnRUVvcEF3bUcFZEBlYlg=";
+            break;
+        case 1:
+            retValue += "Aq8koaJmtHqO7q15EwDAPX2FhGCTZtE0SJkXHCaQ+nM=";
+            break;
+        default:
+            retValue += "Error";
+            break;
+    }
+    return env -> NewStringUTF(retValue.c_str());
+}
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_websarva_wings_android_vulnmemory_1aes_viewmodel_vulnalg_VulnAlgViewModelKt_getXorData(
+        JNIEnv *env, jclass clazz) {
+    // TODO: implement getXorData()
+    string retValue = "NjI5ODQ3Nzc3NTM5MjM0NzIzNjQ3NDg1NDIyNDkzODM=";
+    return env->NewStringUTF(retValue.c_str());
+}
