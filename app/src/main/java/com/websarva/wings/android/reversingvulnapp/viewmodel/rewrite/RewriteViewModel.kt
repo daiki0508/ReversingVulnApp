@@ -8,7 +8,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.websarva.wings.android.reversingvulnapp.viewmodel.vulnalg.SecureSecretKey
+import com.websarva.wings.android.reversingvulnapp.viewmodel.SecureSecretKey
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.io.FileOutputStream
 import javax.crypto.Cipher

@@ -30,7 +30,6 @@ class RewriteFragment: Fragment() {
 
         setFragmentResultListener(DialogBundle.RewriteDialog.name){_, _ ->
             Log.d("test", "Success!!")
-            // TODO("未実装")
             viewModel.decrypt()
         }
     }

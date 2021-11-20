@@ -83,8 +83,8 @@ Java_com_websarva_wings_android_reversingvulnapp_viewmodel_vulnalg_VulnAlgViewMo
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_websarva_wings_android_reversingvulnapp_viewmodel_vulnalg_VulnAlgViewModelKt_getXorData(
-        JNIEnv *env, jclass clazz) {
+Java_com_websarva_wings_android_reversingvulnapp_viewmodel_vulnalg_VulnAlgViewModel_getXorData(
+        JNIEnv *env, jobject thiz) {
     // TODO: implement getXorData()
     string retValue = "NjI5ODQ3Nzc3NTM5MjM0NzIzNjQ3NDg1NDIyNDkzODM=";
     return env->NewStringUTF(retValue.c_str());
