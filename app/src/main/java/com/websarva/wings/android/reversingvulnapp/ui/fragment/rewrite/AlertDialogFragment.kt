@@ -13,7 +13,6 @@ import java.lang.Exception
 import java.lang.IllegalStateException
 
 class AlertDialogFragment(private val flag: Boolean): DialogFragment() {
-    private var listener: DialogListener? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = activity?.let {
@@ -32,7 +31,7 @@ class AlertDialogFragment(private val flag: Boolean): DialogFragment() {
                 })
                 .setPositiveButton("OK"){_, _ ->
                     if (flag){
-                        listener?.dialogPositive()
+                        parentFragmentManager.setFragmentResult(DialogBundle.RewriteDialog.name, Bundle())
                     }else{
                         with(Intent(it, MainActivity::class.java)){
                             it.finish()
@@ -46,21 +45,5 @@ class AlertDialogFragment(private val flag: Boolean): DialogFragment() {
         this.isCancelable = false
 
         return dialog ?: throw IllegalStateException("activity is null.")
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        try {
-            listener = context as DialogListener
-        }catch (e: Exception){
-            Log.e("ERROR", "CANNOT FIND LISTENER.")
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-        listener = null
     }
 }
