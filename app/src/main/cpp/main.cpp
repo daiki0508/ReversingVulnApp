@@ -89,3 +89,33 @@ Java_com_websarva_wings_android_reversingvulnapp_viewmodel_vulnalg_VulnAlgViewMo
     string retValue = "NjI5ODQ3Nzc3NTM5MjM0NzIzNjQ3NDg1NDIyNDkzODM=";
     return env->NewStringUTF(retValue.c_str());
 }
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_websarva_wings_android_reversingvulnapp_viewmodel_rewrite_RewriteViewModel_getXorData(
+        JNIEnv *env, jobject thiz) {
+    // TODO: implement getXorData()
+    string retValue = "aHd0bkVOeTM5c2dZR2pDbmN2OEFER2NmVW1md1JqM2Q=";
+
+    return env->NewStringUTF(retValue.c_str());
+}
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_websarva_wings_android_reversingvulnapp_viewmodel_rewrite_RewriteViewModel_getAESData(
+        JNIEnv *env, jobject thiz, jint flag) {
+    // TODO: implement getAESData()
+    string retValue;
+    switch (flag) {
+        case 0:
+            retValue += "LjQxKx12EFdvAVAYFQBwCxM1aRAlLisPAwAHDjgnBhE=";
+            break;
+        case 1:
+            retValue += "dNxYVrx0Vc+3m4XnZDnggDJWOlpCWy5jhFNPqexjB+ATEIJU8jalzcZXNCLq7zq3";
+            break;
+        default:
+            retValue += "Error";
+            break;
+    }
+    return env -> NewStringUTF(retValue.c_str());
+}

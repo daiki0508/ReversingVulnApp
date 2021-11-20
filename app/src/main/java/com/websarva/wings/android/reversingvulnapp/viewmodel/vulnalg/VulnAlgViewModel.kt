@@ -86,7 +86,7 @@ private fun xorDecode(keyPass: String): String{
 
 private external fun getXorData(): String
 
-private class SecureSecretKey(key2: ByteArray, algorithm: String): SecretKey, Destroyable {
+class SecureSecretKey(key2: ByteArray, algorithm: String): SecretKey, Destroyable {
     private var key: ByteArray?
     private val algorithm: String
 

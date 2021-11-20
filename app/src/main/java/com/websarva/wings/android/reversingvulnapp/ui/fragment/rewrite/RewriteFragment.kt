@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
+import androidx.fragment.app.viewModels
 import com.websarva.wings.android.reversingvulnapp.BuildConfig
 import com.websarva.wings.android.reversingvulnapp.R
 import com.websarva.wings.android.reversingvulnapp.databinding.FragmentRewriteBinding
 import com.websarva.wings.android.reversingvulnapp.ui.MainActivity
+import com.websarva.wings.android.reversingvulnapp.viewmodel.rewrite.RewriteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,12 +23,15 @@ class RewriteFragment: Fragment() {
     private val binding
     get() = _binding!!
 
+    private val viewModel: RewriteViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setFragmentResultListener(DialogBundle.RewriteDialog.name){_, _ ->
             Log.d("test", "Success!!")
             // TODO("未実装")
+            viewModel.decrypt()
         }
     }
 
@@ -57,5 +62,10 @@ class RewriteFragment: Fragment() {
             // build状態によってflagが変化
             AlertDialogFragment(flag = BuildConfig.DEBUG).show(it.supportFragmentManager, "RewriteAlertDialogFragment")
         }
+
+        // decryptDataのobserver
+        viewModel.decryptBytes.observe(this.viewLifecycleOwner, {
+            binding.tvResult.text = "daiki0508{${String(it)}}"
+        })
     }
 }
