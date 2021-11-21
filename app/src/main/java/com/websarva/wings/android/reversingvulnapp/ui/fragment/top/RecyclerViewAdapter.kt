@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.websarva.wings.android.reversingvulnapp.R
 import com.websarva.wings.android.reversingvulnapp.ui.fragment.aesnative.AESNativeFragment
+import com.websarva.wings.android.reversingvulnapp.ui.fragment.rewrite.RewriteFragment
 import com.websarva.wings.android.reversingvulnapp.ui.fragment.vulnalg.AESAlgFragment
 
 class RecyclerViewAdapter(
@@ -36,6 +37,13 @@ class RecyclerViewAdapter(
                         val transaction = it.supportFragmentManager.beginTransaction()
                         transaction.setCustomAnimations(R.anim.fragment_up_enter_anim, R.anim.fragment_up_exit_anim)
                         transaction.replace(R.id.fragment_container, AESAlgFragment()).commit()
+                    }
+                }
+                2 -> {
+                    fragment.activity?.let {
+                        val transaction = it.supportFragmentManager.beginTransaction()
+                        transaction.setCustomAnimations(R.anim.fragment_up_enter_anim, R.anim.fragment_up_exit_anim)
+                        transaction.replace(R.id.fragment_container, RewriteFragment()).commit()
                     }
                 }
             }
